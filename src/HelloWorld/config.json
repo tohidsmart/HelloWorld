@@ -1,0 +1,9 @@
+{
+  "AppSettings": {
+    "SiteEmailAddress": "me@eol.com",
+    "MapKey": " Aik69e953shOPZpBGs9qr7-3pLCqqA6xtL0Qk5vIhZK0Q4fO6aJlqMvoK-nUoYS5"
+  },
+  "Data": {
+    "WorldContextConnetion": "Server=(localdb)\\Projects;Database=TheWorldDB;Trusted_Connection=true;MultipleActiveResultSets=true"
+  }
+}

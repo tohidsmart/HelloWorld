@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The World @ViewBag.Title</title>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="~/js/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/js/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/js/bootswatch/spacelab/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+
+<body>
+
+    <div id="sidebar">
+        @if (User.Identity.IsAuthenticated)
+        {
+        <img src="~/img/user1.jpg" alt="headshot" class="headshot" />
+        <span id="username">@User.Identity.Name</span>
+        }
+        <ul class=" nav">
+            <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
+            <li><a asp-controller="App" asp-action="About">About</a></li>
+            <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+            <li><a asp-controller="App" asp-action="Trips">Trips</a></li>
+            <li><a asp-controller="Auth" asp-action="Logout">Log out</a></li>
+            }
+        </ul>
+    </div>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <button id="sidebarToggle" class="btn btn-primary btn-sm"><i class="fa fa-angle-left"></i></button>
+                    </li>
+                </ul>
+                <a asp-controller="App" asp-action="Index" class="navbar-brand">Welcome world</a>
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+                        <a href="#" class="btn btn-sm btn-info"><i class="fa fa-save"></i>Save</a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-sm btn-info"><i class="fa fa-print"></i>Print</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+        <div id="main" style="margin-bottom:40px" class="container-fluid">
+            
+            <div>
+                @RenderBody()
+            </div>
+
+        </div>
+        <div id="footer" class="container-fluid">
+            <div class="navbar navbar-inverse navbar-fixed-bottom" >
+                <h4 class="text-primary text-center">&copy; 2015 The World Ltd.</h4>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/bootstrap/dist/js/bootstrap.min.js"></script>
+	<environment names="Development">
+		<script type="text/javascript" src="~/customjs/site.js"></script>
+	</environment>
+	<environment names="Production,Staging">
+		<script type="text/javascript" src="~/js/_app/site.js"></script>
+	</environment>
+    @RenderSection("Scripts", false)
+
+</body>
+
+</html>

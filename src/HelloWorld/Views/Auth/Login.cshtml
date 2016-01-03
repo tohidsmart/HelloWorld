@@ -1,0 +1,31 @@
+﻿@model HelloWorld.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login Page";
+}
+@section Scripts{
+    <script src="~/js/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/js/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+<div class="row">
+    <div class="col-md-6 col-md-offset-4">
+        <h2>Login</h2>
+        <form method="post">
+
+            <div asp-validation-summary="ValidationSummary.ModelOnly"></div>
+            <div class="form-group">
+                <label asp-for="UserName">UserName</label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-muted"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-muted"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
